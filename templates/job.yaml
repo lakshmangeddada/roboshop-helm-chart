@@ -6,7 +6,8 @@ metadata:
   labels:
     component: {{ .Values.component }}
 spec:
-  serviceAccountName: {{ .Values.component }}  template:
+  serviceAccountName: {{ .Values.component }}
+  template:
     spec:
       containers:
       - name: schema-loader
