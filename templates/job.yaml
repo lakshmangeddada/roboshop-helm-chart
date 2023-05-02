@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.component }}-schema-loader
+  labels:
+    component: {{ .Values.component }}
+spec:
+  serviceAccountName: {{ .Values.component }}
+  template:
+    spec:
+      containers:
+      - name: schema-loader
+        image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.0
+      restartPolicy: Never
+  backoffLimit: 1
